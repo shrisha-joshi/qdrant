@@ -53,7 +53,7 @@ pub struct ForwardProxyShard {
     /// It should block data updating operations while the batch is being transferred.
     update_lock: Mutex<()>,
     // ToDo: Transfer points only if they match the filter
-    filter: Option<Filter>,
+    filter: Option<Box<Filter>>,
 }
 
 impl ForwardProxyShard {
@@ -86,7 +86,7 @@ impl ForwardProxyShard {
             wrapped_shard,
             remote_shard,
             resharding_hash_ring,
-            filter,
+            filter: filter.map(Box::new),
             update_lock: Mutex::new(()),
             // todo: attach filter field and use it to filter points in `update` method
         }
@@ -143,7 +143,7 @@ impl ForwardProxyShard {
                     offset,
                     batch_size,
                     hashring_filter,
-                    self.filter.as_ref(),
+                    self.filter.as_deref(),
                     runtime_handle,
                 )
                 .await?
