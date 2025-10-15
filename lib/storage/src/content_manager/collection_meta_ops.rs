@@ -369,6 +369,7 @@ pub enum ShardTransferOperations {
 #[derive(Clone, Debug, Eq, PartialEq, Hash, Deserialize, Serialize)]
 pub enum MultiSourceTransferShardOperation {
     Start(MultiSourceTransfer),
+    // todo: Add Progress and Failure consensus operations
     Finish(MultiSourceTransfer),
 }
 
