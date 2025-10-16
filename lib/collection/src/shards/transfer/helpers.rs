@@ -205,7 +205,6 @@ pub fn validate_transfer(
         return Err(CollectionError::bad_request(format!(
             "Target shard {to_shard_id} can only be set for {:?} or filtered streaming records transfers",
             ShardTransferMethod::ReshardingStreamRecords,
-            ShardTransferMethod::FilteredStreamRecords
         )));
     }
 
