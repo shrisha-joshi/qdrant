@@ -202,6 +202,7 @@
     - [ModelUsage](#qdrant-ModelUsage)
     - [MultExpression](#qdrant-MultExpression)
     - [MultiDenseVector](#qdrant-MultiDenseVector)
+    - [NaiveFeedbackStrategy](#qdrant-NaiveFeedbackStrategy)
     - [NamedVectors](#qdrant-NamedVectors)
     - [NamedVectors.VectorsEntry](#qdrant-NamedVectors-VectorsEntry)
     - [NamedVectorsOutput](#qdrant-NamedVectorsOutput)
@@ -275,7 +276,6 @@
     - [SetPayloadPoints](#qdrant-SetPayloadPoints)
     - [SetPayloadPoints.PayloadEntry](#qdrant-SetPayloadPoints-PayloadEntry)
     - [ShardKeySelector](#qdrant-ShardKeySelector)
-    - [SimpleFeedbackStrategy](#qdrant-SimpleFeedbackStrategy)
     - [SparseIndices](#qdrant-SparseIndices)
     - [SparseVector](#qdrant-SparseVector)
     - [StartFrom](#qdrant-StartFrom)
@@ -3035,7 +3035,7 @@ The JSON representation for `Value` is a JSON value.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| simple | [SimpleFeedbackStrategy](#qdrant-SimpleFeedbackStrategy) |  | a * score &#43; sim(confidence^b * c * delta) |
+| naive | [NaiveFeedbackStrategy](#qdrant-NaiveFeedbackStrategy) |  | a * score &#43; sim(confidence^b * c * delta) |
 
 
 
@@ -3578,6 +3578,23 @@ If not specified, the `limit` value is used. |
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | vectors | [DenseVector](#qdrant-DenseVector) | repeated |  |
+
+
+
+
+
+
+<a name="qdrant-NaiveFeedbackStrategy"></a>
+
+### NaiveFeedbackStrategy
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| a | [float](#float) |  |  |
+| b | [float](#float) |  |  |
+| c | [float](#float) |  |  |
 
 
 
@@ -4918,23 +4935,6 @@ Parameterized reciprocal rank fusion
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | shard_keys | [ShardKey](#qdrant-ShardKey) | repeated | List of shard keys which should be used in the request |
-
-
-
-
-
-
-<a name="qdrant-SimpleFeedbackStrategy"></a>
-
-### SimpleFeedbackStrategy
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| a | [float](#float) |  |  |
-| b | [float](#float) |  |  |
-| c | [float](#float) |  |  |
 
 
 

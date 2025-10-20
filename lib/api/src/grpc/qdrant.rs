@@ -5539,14 +5539,14 @@ pub mod feedback_strategy {
     pub enum Variant {
         /// a * score + sim(confidence^b * c * delta)
         #[prost(message, tag = "1")]
-        Simple(super::SimpleFeedbackStrategy),
+        Naive(super::NaiveFeedbackStrategy),
     }
 }
 #[derive(validator::Validate)]
 #[derive(serde::Serialize)]
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct SimpleFeedbackStrategy {
+pub struct NaiveFeedbackStrategy {
     #[prost(float, tag = "1")]
     pub a: f32,
     #[prost(float, tag = "2")]

@@ -15578,18 +15578,18 @@
           {
             "type": "object",
             "required": [
-              "simple"
+              "naive"
             ],
             "properties": {
-              "simple": {
-                "$ref": "#/components/schemas/SimpleFeedbackStrategy"
+              "naive": {
+                "$ref": "#/components/schemas/NaiveFeedbackStrategy"
               }
             },
             "additionalProperties": false
           }
         ]
       },
-      "SimpleFeedbackStrategy": {
+      "NaiveFeedbackStrategy": {
         "type": "object",
         "required": [
           "a",
