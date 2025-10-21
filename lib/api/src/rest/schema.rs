@@ -723,6 +723,7 @@ pub struct SampleQuery {
 #[derive(Debug, Serialize, Deserialize, JsonSchema, Validate)]
 #[serde(rename_all = "snake_case")]
 pub struct FeedbackQuery {
+    #[validate(nested)]
     pub feedback: FeedbackInput,
 }
 
@@ -866,6 +867,7 @@ impl ContextPair {
 
 #[derive(Debug, Serialize, Deserialize, JsonSchema, Validate)]
 pub struct FeedbackInput {
+    #[validate(nested)]
     pub target: VectorInput,
     #[validate(nested)]
     pub feedback: Vec<FeedbackItem>,
@@ -875,6 +877,7 @@ pub struct FeedbackInput {
 
 #[derive(Debug, Serialize, Deserialize, JsonSchema, Validate)]
 pub struct FeedbackItem {
+    #[validate(nested)]
     pub vector: VectorInput,
     pub score: f32,
 }
