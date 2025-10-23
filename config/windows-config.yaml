@@ -1,0 +1,41 @@
+log_level: INFO
+
+storage:
+  # Windows-specific storage path
+  storage_path: "C:\\qdrant-data"
+  
+  # Where to store snapshots  
+  snapshots_path: "C:\\qdrant-data\\snapshots"
+  
+  snapshots_config:
+    snapshots_storage: local
+    
+  # Where to store temporary files
+  temp_path: "C:\\qdrant-data\\temp"
+  
+  # Store payloads on disk to save RAM
+  on_disk_payload: true
+  
+  # Maximum number of concurrent updates
+  update_concurrency: 4
+
+service:
+  # HTTP API port
+  http_port: 6333
+  
+  # gRPC API port  
+  grpc_port: 6334
+  
+  # Enable CORS for web interfaces
+  enable_cors: true
+  
+  # Host to bind the service
+  host: 0.0.0.0
+
+# Cluster configuration (disabled for single node)
+cluster:
+  enabled: false
+
+# Performance tuning for Windows
+performance:
+  max_search_threads: 4
